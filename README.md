@@ -5,20 +5,43 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+### Ruby version
+  2.6.3p62
 
-* System dependencies
+### Database creation
+  Postgresql
 
-* Configuration
+# DB design
+## tweets table
+|Column|Type|Options|
+|---|---|---|
+|image_url|text|null:false|
+|text|text||
+|user(FK)|referances|foreign_key:true|
 
-* Database creation
+### Association
+- belongs_to:user
+- has_many:comments
 
-* Database initialization
+## user table
+|Column|Type|Options|
+|---|---|---|
+|nickname|string|null:false|
+|email|string|null:false,unique_true|
+|password|string|null:false|
+|password_confirmation|string|null:false|
 
-* How to run the test suite
+### Association
+- has_many:tweets
+- has_many:comments
 
-* Services (job queues, cache servers, search engines, etc.)
+## comments table
+|Column|Type|Options|
+|---|---|---|
+|comments|text|null:false|
+|tweet|references|foreign_key:true|
+|user|references|foreign_key:true|
 
-* Deployment instructions
-
-* ...
+### Association
+- belongs_to:tweet
+- belongs_to:user
