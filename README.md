@@ -15,9 +15,9 @@ Things you may want to cover:
 ## tweets table
 |Column|Type|Options|
 |---|---|---|
-|image_url|string|null:false|
+|image|string|null:false|
 |text|text|index:true|
-|user(FK)|referances|foreign_key:true|
+|user_id(FK)|integer|foreign_key:true|
 
 ### Association
 - belongs_to:user
@@ -38,9 +38,9 @@ Things you may want to cover:
 ## comments table
 |Column|Type|Options|
 |---|---|---|
-|comments|text|null:false|
-|tweet|references|foreign_key:true|
-|user|references|foreign_key:true|
+|text|text|null:false|
+|tweet_id(FK)|integer|foreign_key:true|
+|user_id(FK)|integer|foreign_key:true|
 
 ### Association
 - belongs_to:tweet
