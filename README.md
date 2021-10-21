@@ -15,8 +15,8 @@ Things you may want to cover:
 ## tweets table
 |Column|Type|Options|
 |---|---|---|
-|image_url|text|null:false|
-|text|text||
+|image_url|string|null:false|
+|text|text|index:true|
 |user(FK)|referances|foreign_key:true|
 
 ### Association
